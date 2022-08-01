@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://localhost:4000/api/properties",
+  baseURL: "https://estate-node.herokuapp.com/api/properties",
   headers: {
     "X-Requested-With": "XMLHttpRequest",
     "Content-Type": "application/json",
@@ -11,8 +11,10 @@ const http = axios.create({
 http.interceptors.request.use((config) => {
   const { intercept = true } = config;
   if (!intercept) return config;
-  const token = JSON.parse(localStorage.getItem("property_admin")) || "";
-  if (token.token) config.headers["authorization"] = token.token;
+  const token = localStorage.getItem("property_admin")
+? JSON.parse(localStorage.getItem("property_admin"))
+: null;
+  if (token?.token) config.headers["authorization"] = token?.token;
   return config;
 });
 
