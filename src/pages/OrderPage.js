@@ -11,7 +11,6 @@ function OrderPage() {
   const {
     data,
     isLoading,
-    refetch,
     isFetching,
     isError,
     error,
