@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Form from "components/Form";
 import Input from "components/Input";
@@ -10,7 +10,6 @@ import useGlobalStore from "store/global";
 const Illustration =
   "https://img.freepik.com/free-photo/3d-illustration-residential-building-exterior_42251-556.jpg?w=900";
 function LoginPage() {
-  const [data, setData] = useState(null);
   const navigate = useNavigate();
 
   const { property_admin, SIGNIN } = useGlobalStore((state) => ({
@@ -37,7 +36,6 @@ function LoginPage() {
       } else {
         toast.error("Unable to login, please try again");
       }
-      console.log(data);
     } catch (err) {
       toast.error(errorHandler(err));
     }

@@ -11,7 +11,6 @@ const Illustration =
   "https://img.freepik.com/free-photo/3d-illustration-residential-building-exterior_42251-556.jpg?w=900";
 
 function SignUpPage() {
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const property_admin = useGlobalStore((state) => state.data.property_admin);
   const SIGNIN = useGlobalStore((state) => state.SIGNIN);
@@ -32,7 +31,6 @@ function SignUpPage() {
         handleResetForm();
         toast.success("You have successfully signed up");
         navigate("/property");
-        console.log(data);
       } else {
         toast.error("Unable to sign you up, please try again later");
       }
@@ -54,7 +52,6 @@ function SignUpPage() {
           <h1 className="text-3xl font-semibold text-center text-purple-700">
             LOGO
           </h1>
-          <p>{message}</p>
           <Form
             submit={submit}
             initialValues={initialValues}

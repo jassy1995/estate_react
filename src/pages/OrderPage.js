@@ -45,7 +45,7 @@ function OrderPage() {
 
   return (
     <>
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 pb-32 md:pb-32 lg:pb-32 xl:pb-32">
         {isFetching || isLoading ? <span> Loading...</span> : null}{" "}
         {isError && <span> {error.message}</span>}
         {(!data?.data?.orders?.length && (!isFetching && !isLoading && !isError)) ?  <EmptyOrder/>:''}
